@@ -21,12 +21,7 @@
 			
 		</div>
 
-		<div sec:authorize="hasAuthority('USER')">This content is HAS
-			ROLE.
-			</div>
-
-		<div sec:authorize="isAuthenticated()">This content is only
-			shown to authenticated users.</div>
+		
 			
 			<p>Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span></p>
 

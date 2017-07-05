@@ -27,14 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     	return new SSUserDetailsService(userRepository);
     }
     
-    
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth ) throws Exception {
-    
-    
-    auth.userDetailsService(userDetailsServiceBean());
-    }
-
+  
  
     
     @Override
@@ -56,6 +49,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+        auth.inMemoryAuthentication().withUser("saurav").password("password").roles("USER","ADMIN");
+        auth.inMemoryAuthentication().withUser("sunil").password("password").roles("ADMIN");
+        auth.userDetailsService(userDetailsServiceBean());
+    }
 
 	
 	/*
