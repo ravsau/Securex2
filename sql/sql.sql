@@ -1,4 +1,9 @@
+create database securex; 
+create user 'root'@'localhost' identified by 'password'; 
+grant all on securex.* to 'root '@'localhost';
+
 use securex;
+
 
 set foreign_key_checks=0;
 
